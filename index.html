@@ -13,8 +13,8 @@
 <body>
     <div class="container">
             <div class="navbar">
-                <img class="nav-logo" src="./image/Logo.svg" alt="">
-                <div class="navlinks">
+                <img class="nav-logo" src="./image/Logo.svg" alt="Organick Logo">
+                <div class="navlinks" id="nav-links">
                     <p>Home</p>
                     <p>About</p>
                     <select name="" id="page" aria-label="tanlash">
@@ -29,17 +29,19 @@
                     <p>Projects</p>
                     <p>News</p>
                 </div>
-                <div class="nav-inp">
-                    <input class="nav-input" type="text" aria-label="Search">
-                    <i class="bi bi-search"></i>
-                </div>
-                <div class="cart">
-                    <i class="bi bi-cart3"></i>
-                    <h4>Cart (0)</h4>
+                <div class="nav-right">
+                    <input class="nav-input" id="search-input" type="text" aria-label="Search">
+                    <i class="bi bi-search" id="search-icon"></i>
+                    <i class="bi bi-cart3" id="cart-icon"></i>
+                    <h4 class="cart-text">Cart (0)</h4>
+                    <div class="hamburger" id="hamburger-menu">
+                        <i class="bi bi-list"></i>
+                    </div>
                 </div>
             </div>
             <div class="home">
-                <img src="./image/Background.png" alt="">
+                <img class="home-back" src="./image/home-back.png" alt="">
+                <img src="./image/Background2.png" alt="">
                 <div class="home-content">
                     <h4>100% Natural Food</h4>
                     <h1>Choose the best healthier way of life</h1>
@@ -348,8 +350,8 @@ been the industry's standard dummy text ever since the 1500s, when an unknown pr
                     <p>Yangihayot tumani, chochtepa</p>
                 </div>
                 <div class="organic-contact">
-                    <img src="./image/organik.png" alt="">
-                    <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing</p>
+                    <img src="./image/Logo.svg" alt="Organick Logo">
+                    <p>Simply dummy text of the printing and typesetting industry. Lorem Ipsum simply dummy text of the printing.</p>
                     <div class="org-icons">
                         <i class="bi bi-instagram"></i>
                         <i class="bi bi-facebook"></i>
@@ -366,9 +368,33 @@ been the industry's standard dummy text ever since the 1500s, when an unknown pr
                     <p>Changelog</p>
                 </div>
             </div>
-            <footer class="foter">
-                <p>Copyright © Organick | Designed by VictorFlow Templates - Powered by Webflow</p>
-            </footer>
+            <div class="foter">
+                <p>Copyright &copy; Organick | Designed by VictorFlow Templates - Powered by Webflow</p>
+            </div>
     </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+        const searchInput = document.getElementById('search-input');
+        const searchIcon = document.getElementById('search-icon');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartText = document.querySelector('.cart-text');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('bi-list');
+            icon.classList.toggle('bi-x');
+        });
+
+        searchIcon.addEventListener('click', () => {
+            searchInput.classList.toggle('active');
+        });
+
+        cartIcon.addEventListener('click', () => {
+            cartText.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
